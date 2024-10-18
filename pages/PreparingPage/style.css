@@ -1,3 +1,166 @@
+/* Tar bort alla marginaler och padding för alla element, 
+   och sätter box-sizing till 'border-box' för bättre kontroll över boxmodellen */
 * {
-    background-color: rgb(248, 190, 241);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Bakgrundsinställning för body, använder en diagonal (bottom-right) gradient från 
+   ljusrosa (#f3eef2) till mörk röd (#c10d46), och sätter höjden till minst hela skärmen */
+body {
+    background: linear-gradient(to bottom right, #f3eef2, #c10d46);
+    min-height: 100vh;
+    /* Säkerställer att body täcker hela höjden av webbläsarfönstret */
+}
+
+/* Flexbox-inställningar för en sektion med klassen 'preparing', 
+   där innehållet centras både horisontellt och vertikalt */
+.preparing {
+    display: flex;
+    /* Använder flexbox för layouten */
+    justify-content: center;
+    /* Horisontell centrering */
+    flex-direction: column;
+    /* Arrangerar elementen i en kolumn (vertikalt) */
+    align-items: center;
+    /* Vertikal centrering */
+    height: 100vh;
+    /* Fyller hela höjden av webbläsarfönstret */
+}
+
+/* Inställningar för rubriken (h1), med vit färg, stor fontstorlek och monospace-typsnitt */
+h1 {
+    color: white;
+    /* Vit textfärg */
+    font-size: 50px;
+    /* Stor fontstorlek */
+    font-family: monospace;
+    /* Typsnittet monospace */
+    margin: 30px;
+    /* Marginal runt rubriken */
+}
+
+/* Stil för element med klassen 'beskrivning', liknande stil som rubriken men mindre fontstorlek */
+.beskrivning {
+    color: white;
+    /* Vit textfärg */
+    font-size: 20px;
+    /* Mindre fontstorlek än rubriken */
+    font-family: monospace;
+    /* Samma monospace-typsnitt */
+}
+
+/* Container för startknappen, med 50px marginal och en fast bredd på 100px */
+.startBtn-Container {
+    margin: 50px;
+    /* Marginal runt om */
+    width: 100px;
+    /* Fast bredd */
+}
+
+/* Stilar för startknappen */
+.start-button {
+    padding: 0.6em 2em;
+    /* Inre marginaler (padding) runt texten i knappen */
+    border: none;
+    /* Ingen ram */
+    outline: none;
+    /* Ingen outline */
+    color: rgb(246, 169, 220);
+    /* Textfärg i en rosa nyans */
+    background: #111;
+    /* Bakgrundsfärg: mörkgrå/svart */
+    cursor: pointer;
+    /* Ändrar muspekaren till en hand för att indikera att knappen är klickbar */
+    position: relative;
+    /* Skapar en referenspunkt för de pseudo-element som kommer efter */
+    z-index: 0;
+    /* Sätter knappen på nivå 0 i z-index */
+    border-radius: 10px;
+    /* Rundar hörnen på knappen */
+    user-select: none;
+    /* Hindrar användaren från att markera text på knappen */
+    -webkit-user-select: none;
+    /* Samma sak som ovan, men för WebKit-baserade webbläsare */
+    touch-action: manipulation;
+    /* Optimerar för touch-enheter */
+}
+
+/* Pseudo-element som skapar en animerad, färgglad, suddig kant bakom knappen */
+.start-button:before {
+    content: "";
+    /* Skapar ett tomt element */
+    background: linear-gradient(45deg, #ff0000, #c9309b, #ece8eb, #f1edf0, #ad649b, #b650a3, #7a00ff, #ff00c8, #dd4c99);
+    /* Gradient med flera färger för en skimrande, regnbågsliknande effekt */
+    position: absolute;
+    /* Placeras relativt till knappen */
+    top: -2px;
+    /* Flyttar pseudo-elementet något ovanför knappen */
+    left: -2px;
+    /* Flyttar pseudo-elementet något till vänster om knappen */
+    background-size: 400%;
+    /* Gör bakgrunden större än sitt element för animeringen */
+    z-index: -1;
+    /* Placerar pseudo-elementet bakom knappen */
+    filter: blur(5px);
+    /* Skapar en suddighet runt kanten */
+    -webkit-filter: blur(5px);
+    /* Samma som ovan, men för WebKit-baserade webbläsare */
+    width: calc(100% + 4px);
+    /* Bredden är något större än knappen för att skapa en kant runt om */
+    height: calc(100% + 4px);
+    /* Höjden är något större än knappen */
+    animation: glowing-button-85 20s linear infinite;
+    /* Applicerar en oändlig animation som förändrar bakgrundspositionen */
+    transition: opacity 0.3s ease-in-out;
+    /* Lägger till en mjuk övergång för opaciteten */
+    border-radius: 10px;
+    /* Rundar hörnen för att matcha knappen */
+}
+
+/* Nyckelbildruta för animationen, som flyttar gradientens bakgrundsposition 
+   för att skapa en skimrande effekt över tid */
+@keyframes glowing-button-85 {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Pseudo-element som skapar en extra bakgrund bakom knappen för att ge en djupare effekt */
+.start-button:after {
+    z-index: -1;
+    /* Placeras bakom knappen */
+    content: "";
+    /* Tomt element som bara används för bakgrundseffekten */
+    position: absolute;
+    /* Absolut positionering relativt till knappen */
+    width: 100%;
+    /* Täcker hela bredden av knappen */
+    height: 100%;
+    /* Täcker hela höjden av knappen */
+    background: #f8f4f4;
+    /* Ljusrosa bakgrund */
+    left: 0;
+    /* Placerad längst till vänster */
+    top: 0;
+    /* Placerad längst upp */
+    border-radius: 10px;
+    /* Rundade hörn för att matcha knappen */
+}
+
+@media only screen and (max-width: 600px) {
+    .preparing {
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+    }
 }

@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quiz App</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div>
-        <h1>hej</h1>
-        
-        <button class="quizResult" data-subject="quizResultData" style="display: none;">Se resultat?</button>
+    <div id="quiz-app">
+        <div id="quiz-subject"></div>
+        <div id="question-container">
+            <div id="question">Är du redo?</div>
+            <div id="startCountDown">
+                <!-- dynamic countdown here from 3 -->
+            </div>
+            <div id="timer"></div>
+            <img src="" class="hide" alt="question image" id="question-image">
+            <div id="answer-buttons" class="btn-grid">
+                <!-- Answer buttons will be added here dynamically -->
+            </div>
+        </div>
+        <div id="controls">
+            <button id="start-btn">Start</button>
+            <button id="next-btn" style="display: none;">Next</button>
+        </div>
+
     </div>
 </body>
+
 </html>
