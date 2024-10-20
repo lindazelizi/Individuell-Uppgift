@@ -9,11 +9,8 @@ body {
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
   color: #333;
 }
 
@@ -22,43 +19,58 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 #question-container {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 #question {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #222;
+  font-weight: bold;
+}
+
+#question-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-grid {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
 .button {
-  padding: 10px 15px;
+  padding: 15px;
   background-color: #007BFF;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size: 16px;
 }
 
 .button:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 #controls {
+  display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #controls.show {
@@ -67,17 +79,28 @@ body {
 
 #start-btn,
 #next-btn {
-  padding: 10px 20px;
+  padding: 10px 30px;
   background-color: #28A745;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 #start-btn:hover,
 #next-btn:hover {
   background-color: #218838;
+  transform: scale(1.05);
+}
+
+#startCountDown,
+#timer {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #d9534f;
 }
 
 .hide {
@@ -98,6 +121,7 @@ body {
   }
 }
 
+
 @media only screen and (max-width: 600px) {
   .quiz-app {
     display: flex;
@@ -105,4 +129,3 @@ body {
     margin-top: 50px;
   }
 }
-

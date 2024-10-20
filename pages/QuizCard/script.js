@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const answerButtonsElement = document.getElementById('answer-buttons');
   const questionImage = document.getElementById('question-image');
   const timerElement = document.getElementById('timer');
-  const startCountDown = document.getElementById('startCountDown'); // New countdown element
+  const startCountDown = document.getElementById('startCountDown');
 
   let currentQuiz = [];
   let currentQuestionIndex = 0;
   let score = 0;
-  let totalTime = 0; 
-  let questionTimer; 
-  let startTime; 
-  let countdownTimer; // New countdown timer
+  let totalTime = 0;
+  let questionTimer;
+  let startTime;
+  let countdownTimer;
 
   const quiz = {
     ordspråk: [
@@ -152,26 +152,26 @@ document.addEventListener("DOMContentLoaded", function () {
   function startQuiz() {
     startBtn.classList.add('hide');
     questionContainer.classList.remove('hide');
-    startCountdown(); // Start the countdown when the quiz starts
+    startCountdown();
   }
 
   function startCountdown() {
-    let countdownTime = 3; // 3 seconds countdown
-    startCountDown.textContent = countdownTime; // Display initial countdown time
+    let countdownTime = 3;
+    startCountDown.textContent = countdownTime;
 
     countdownTimer = setInterval(() => {
       countdownTime--;
-      startCountDown.textContent = countdownTime; // Update displayed countdown time
+      startCountDown.textContent = countdownTime;
 
       if (countdownTime <= 0) {
         clearInterval(countdownTimer);
-        startCountDown.textContent = ""; // Clear countdown display
-        currentQuiz = shuffle([...quiz[selectedSubject] || quiz.ordspråk]); // Select quiz based on subject
+        startCountDown.textContent = "";
+        currentQuiz = shuffle([...quiz[selectedSubject] || quiz.ordspråk]);
         currentQuestionIndex = 0;
         score = 0;
-        totalTime = 0; 
+        totalTime = 0;
         startTime = Date.now();
-        setNextQuestion(); // Show the first question
+        setNextQuestion();
       }
     }, 1000);
   }
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.disabled = true;
       setStatusClass(button, button.dataset.correct);
     });
-    nextBtn.style.display = 'inline-block'; // Show Next button
+    nextBtn.style.display = 'inline-block';
     clearInterval(questionTimer);
   }
 
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function startQuestionTimer() {
-    let timeLeft = 10; // 10 seconds for each question
+    let timeLeft = 10;
     timerElement.textContent = `Tid kvar: ${timeLeft}s`;
 
     questionTimer = setInterval(() => {
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
       timerElement.textContent = `Tid kvar: ${timeLeft}s`;
       if (timeLeft <= 0) {
         clearInterval(questionTimer);
-        markAnswerAsWrong(); // Mark the answer as wrong when time runs out
+        markAnswerAsWrong();
       }
     }, 1000);
   }
@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.disabled = true;
       setStatusClass(button, button.dataset.correct);
     });
-    nextBtn.style.display = 'inline-block'; // Show Next button
+    nextBtn.style.display = 'inline-block';
   }
 
   function showResults() {

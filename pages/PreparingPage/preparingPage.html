@@ -10,27 +10,15 @@
 </head>
 
 <body>
-    <!-- En container som använder klassen 'preparing' för att centrera och strukturera innehållet -->
     <div class="preparing">
-        <!-- Bild-element, utan en förvald källa (src) som fylls dynamiskt av JavaScript -->
         <img id="img_subject" alt="bild" src="">
-
-        <!-- En huvudrubrik (h1) som visar användarens valda quiz-ämne dynamiskt -->
         <h1 class="choosen">Du har valt <span id="choosenOption"></span></h1>
-        <!-- Elementet <span> med id "choosenOption" används för att visa det valda ämnet som sätts via JavaScript -->
-
-        <!-- Ett stycke med beskrivning av quizet och reglerna -->
         <p class="beskrivning">Detta quiz går på tid. När du trycker på "starta quiz" har du 10 sekunder på dig på varje
             fråga!</p>
-
-        <!-- Container för startknappen, med ett data-attribut för att indikera quiz-start -->
         <div class="startBtn-Container" data-subject="startQuiz">
-            <!-- En knapp som startar quizet när den klickas -->
             <button class="start-button" role="button">Starta quiz</button>
         </div>
     </div>
-
-    <!-- Referens till en JavaScript-fil (script.js), om det är samma script som det ovan är det redundans -->
     <script src="script.js"></script>
 </body>
 
